@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from login.forms import LoginForm
+from login.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 
 def login_page(request):
@@ -15,6 +15,7 @@ def login_page(request):
 				if user.is_active:
 					login(request, user)
 					message = "Te has identificado correctamente"
+					return redirect('homepage')
 				else:
 					message = "Tu usuario esta inactivo"
 			else:
@@ -31,3 +32,17 @@ def homepage(request):
 def logout_page(request):
 	logout(request)
 	return redirect('homepage')
+
+def register(request):	
+	if request.method == 'POST':
+		form = RegisterForm(request.POST)
+		data = request.POST.copy()
+		if form.is_valid():
+			new_user = form.save(data)
+			logoid(new_user)
+			return redirect('homepage')
+	else:
+		form = RegisterForm()
+	return render_to_response('register.html', 
+		{'form' : form},
+		context_instance=RequestContext(request))

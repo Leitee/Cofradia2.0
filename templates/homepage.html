@@ -1,5 +1,66 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block titulo %} Bienvenido {% endblock %}
 {% block content %}
-    <h3>Bienvenido, esta es nuestra pagina de inicio</h3>
+
+ <!-- Publicaciones -->
+
+<div >
+<center > 
+	<div >
+		<img src="{% static 'img/ultima.png' %}" style="height: 266px;" id="Publicaciones1">
+	</div>
+	<div id="Publicaciones">
+		<center><h4><a href="{% url "publi_detalle" 1 %}">Deporte</a></h4></center>
+		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
+			<tr bgcolor="#C6C9D0" align="center"> 
+				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
+			</tr> 
+			<tr bgcolor="#C6C9D0"> 
+				<td> 
+		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
+			<tr bgcolor="#FFFFFF"> 
+				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+			</tr> 
+		</table> 
+			</td> 
+				</tr> 
+		</table> 
+	</div>
+	<div id="Publicaciones">
+		<center><h4><a href="{% url "publi_detalle" 2 %}">Trabajo</a></h4></center>
+		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
+			<tr bgcolor="#C6C9D0" align="center"> 
+				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
+			</tr> 
+			<tr bgcolor="#C6C9D0"> 
+				<td> 
+		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
+			<tr bgcolor="#FFFFFF"> 
+				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+			</tr> 
+		</table> 
+			</td> 
+				</tr> 
+		</table> 
+	</div>
+	<div id="Publicaciones">
+		<center><h4><a href="{% url "publi_detalle" 3 %}">Estudio</a></h4></center>
+		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
+			<tr bgcolor="#C6C9D0" align="center"> 
+				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
+			</tr> 
+			<tr bgcolor="#C6C9D0"> 
+				<td> 
+		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
+			<tr bgcolor="#FFFFFF"> 
+				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+			</tr> 
+		</table> 
+			</td> 
+				</tr> 
+		</table> 
+	</div>
+</center>
+</div>
 {% endblock %}

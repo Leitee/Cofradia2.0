@@ -1,27 +1,52 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="es">
 <head>
-	<title>Practicando con DJANGO | {% block titulo %} Inicio {% endblock titulo %}</title>
+<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />	
+<!-- hace a la app device responsive-->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="shortcut icon" href="{% static 'img/cofradia.ico' %}"/>
+<link href="{% static 'css/stylesheet.css' %}" rel="stylesheet"/>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<title>Cofradia! - {% block titulo %} Inicio {% endblock titulo %}</title>
 </head>
-<body>
+
+<body style="background-color: #F0D048">
 	<div id="header">
-		{% if user.is_authenticated %}
-			<p>Bienvenido, <b>{{user.username}} | <a href="{% url "logout" %}">Logout</a></b></p>
+		<div >
+			<a href="{% url "homepage" %}"><img id="logo" src="{% static 'img/cofradia.png' %}"></a>
+		</div>
+		<div id="zonaLogin">
+		{% if user.is_authenticated %}		
+			<a href="{% url "homepage" %}">{{user.username}}</a> |
+			<a href="{% url "logout" %}">Cerrar Sesion</a> 
 		{% else %}
-			<p>Bienvenido. Por favor 
-			<a href="{% url "login" %}">log in</a></p>
+			Bienvenido | 
+			<a href="{% url "login" %}">Iniciar Sesion</a>
 		{% endif %}
-		<h1>Practicando con Django</h1>
+		| <a href="{% url "register" %}">Registrarse</a>
+		</div>
 	</div>
 	<div id="content">
 		{% block content %}	{% endblock content %}
 	</div>
 
-<div id="navigation">
-	<p><a href="{% url "homepage" %}">Inicio</a> | <a href="{% url "preguntas" %}">Preguntas</a></p>
+<div id="footer">
+	
+	<footer>
+	<center>
+		<p>Copyright © <a href="https://www.facebook.com/pandorahardsoft">Pandora</a> - Términos y condiciones | Ayuda | Contactanos</p>
+	</center>
+	</footer>
+	
 </div>
 
+<!-- ultimas versiones de jscript y bootstrap -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </body>
-
-
 </html>

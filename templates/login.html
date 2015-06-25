@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block titulo %} Login {% endblock titulo %}
 {% block content %}
+<center>
     <h2>Login</h2>
     {% if message %}
     <b>{{message}}</b>    	
@@ -9,6 +10,8 @@
     	{% csrf_token %}
     	<!-- aqui se podria incluir el snippet {% include "form_snippets.html" %} -->
     	{% include "form_snippets.html" %} 
+        <br>
     	<input type="submit" value="Submit">
     </form>
+    </center>
 {% endblock content %}
