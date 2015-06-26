@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'miprimersitio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testing',
+        'NAME': 'cofradiadb',
         'USER': 'root',
         'PASSWORD': 'toor',
     }

@@ -13,7 +13,7 @@
         	{% for publi in publis %}
         	<div id="two">
         		<center><h1 id="tituloDescription">{{ publi.nombre|escape }}</h1></center>
-        		<li>{{publi.usuario.telefono}}</li>
+        		<li>{{publi.usuario.user.first_name}}</li>
         		<li>{{publi.fechaInicio}}</li>
         		<li>{{ publi.descripcion|escape }}</li>
         		<hr>

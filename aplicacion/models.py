@@ -9,7 +9,7 @@ class Usuario(models.Model):
 	fNacimiento = models.DateField()
 	sexo = models.BooleanField()
 	telefono = models.CharField(max_length = 20)
-	#user = models.ForeignKey(User)
+	user = models.ForeignKey(User)
 
 class Publicacion(models.Model):
 	nombre = models.CharField(max_length=100)
