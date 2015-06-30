@@ -14,13 +14,13 @@
 		<center><h4><a href="{% url "publi_detalle" 1 %}">Deporte</a></h4></center>
 		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
 			<tr bgcolor="#C6C9D0" align="center"> 
-				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
+				<td><b><font color="#242424">{{ publi.nombre|escape }}</font></b></td> 
 			</tr> 
 			<tr bgcolor="#C6C9D0"> 
 				<td> 
 		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
 			<tr bgcolor="#FFFFFF"> 
-				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+				<td>{{publi.descripcion}}<br></td> 
 			</tr> 
 		</table> 
 			</td> 
@@ -37,7 +37,7 @@
 				<td> 
 		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
 			<tr bgcolor="#FFFFFF"> 
-				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+				<td>Descripcion... <br></td> 
 			</tr> 
 		</table> 
 			</td> 
@@ -54,7 +54,7 @@
 				<td> 
 		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
 			<tr bgcolor="#FFFFFF"> 
-				<td>acá iría lo que es la descripcion del evento <br><i>ver más...</i></td> 
+				<td>Descripcion... <br></td> 
 			</tr> 
 		</table> 
 			</td> 

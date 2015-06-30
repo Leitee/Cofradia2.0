@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'preguntasyrespuestas',
     'aplicacion',
 ]
 
@@ -83,16 +82,18 @@ DATABASES = {
         'NAME': 'cofradiadb',
         'USER': 'root',
         'PASSWORD': 'toor',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
-LOGIN_URL = reverse_lazy('login')#para referenciar por el nombre
+LOGIN_URL = reverse_lazy('login')#para referenciar una url por el nombre
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-Ar'
 
 TIME_ZONE = 'UTC'
 
@@ -111,3 +112,5 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+
+#AUTH_PROFILE_MODULE = 'aplicacion.Usuario'

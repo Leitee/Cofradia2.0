@@ -1,7 +1,13 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.views.generic import FormView
 from login.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
+from aplicacion.models import Publicacion, Usuario
+from datetime import date
+from django.core.urlresolvers import reverse_lazy
+
+import pdb #pdb.set_trace()
 
 def login_page(request):
 	message = None
@@ -26,13 +32,32 @@ def login_page(request):
 		context_instance=RequestContext(request))
 
 def homepage(request):
+	p = Publicacion.objects.filter(categoria_id=1)
+
 	return render_to_response('homepage.html',
-		context_instance=RequestContext(request))
+		{'publi': p[len(p)-1]}, context_instance=RequestContext(request))
 
 def logout_page(request):
 	logout(request)
 	return redirect('homepage')
 
+class Register(FormView):
+	template_name = 'register.html'
+	form_class = RegisterForm
+	success_url = reverse_lazy('register')
+
+	def form_valid(self, form):
+		user = form.save()
+		usu = Usuario()
+		usu.user = user
+		usu.telefono = form.cleaned_data['telefono']
+		usu.sexo = form.cleaned_data['sexo']
+		usu.fechaNacimiento = form.cleaned_data['fecha_nacimiento']
+		usu.save()
+		return super(Register, self).form_valid(form)
+
+
+"""
 def register(request):	
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
@@ -45,4 +70,4 @@ def register(request):
 		form = RegisterForm()
 	return render_to_response('register.html', 
 		{'form' : form},
-		context_instance=RequestContext(request))
+		context_instance=RequestContext(request))"""

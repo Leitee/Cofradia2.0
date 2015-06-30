@@ -1,17 +1,16 @@
 from django import forms
-from aplicacion.models import Usuario
+from django.contrib.auth.forms import UserCreationForm 
+from django.forms.extras.widgets import SelectDateWidget
+
+CHOICES=[('Hombre','Hombre'),('Mujer','Mujer')]
 
 class LoginForm(forms.Form):
 	username = forms.CharField(required=True)
-	password = forms.CharField(widget=forms.PasswordInput())
-	
-class RegisterForm(forms.Form):
-	username = forms.CharField(required=True)
-	first_name = forms.CharField(required=True)
-	last_name = forms.CharField(required=True)
-	password1 = forms.CharField(widget=forms.PasswordInput(), required=True)
-	password2 = forms.CharField(widget=forms.PasswordInput(), required=True)
-	fecha_nacimiento = forms.DateField(widget=forms.DateInput(), required=True)
-	email = forms.EmailField(required=True)
+	password = forms.CharField(widget=forms.PasswordInput(), required=True)
+
+class RegisterForm(UserCreationForm):
+	fecha_nacimiento = forms.DateField(widget=SelectDateWidget(), required=True)
 	telefono = forms.CharField()
+	sexo = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect(), required=True) 
+	
 	
