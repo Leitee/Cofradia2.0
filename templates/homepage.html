@@ -1,66 +1,144 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block titulo %} Bienvenido {% endblock %}
+
 {% block content %}
 
  <!-- Publicaciones -->
 
-<div >
-<center > 
-	<div >
-		<img src="{% static 'img/ultima.png' %}" style="height: 266px;" id="Publicaciones1">
-	</div>
-	<div id="Publicaciones">
-		<center><h4><a href="{% url "publi_detalle" 1 %}">Deporte</a></h4></center>
-		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
-			<tr bgcolor="#C6C9D0" align="center"> 
-				<td><b><font color="#242424">{{ publi.nombre|escape }}</font></b></td> 
-			</tr> 
-			<tr bgcolor="#C6C9D0"> 
-				<td> 
-		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
-			<tr bgcolor="#FFFFFF"> 
-				<td>{{publi.descripcion}}<br></td> 
-			</tr> 
-		</table> 
-			</td> 
-				</tr> 
-		</table> 
-	</div>
-	<div id="Publicaciones">
-		<center><h4><a href="{% url "publi_detalle" 2 %}">Trabajo</a></h4></center>
-		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
-			<tr bgcolor="#C6C9D0" align="center"> 
-				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
-			</tr> 
-			<tr bgcolor="#C6C9D0"> 
-				<td> 
-		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
-			<tr bgcolor="#FFFFFF"> 
-				<td>Descripcion... <br></td> 
-			</tr> 
-		</table> 
-			</td> 
-				</tr> 
-		</table> 
-	</div>
-	<div id="Publicaciones">
-		<center><h4><a href="{% url "publi_detalle" 3 %}">Estudio</a></h4></center>
-		<table width="220" border="0" cellspacing="0" cellpadding="1"> 
-			<tr bgcolor="#C6C9D0" align="center"> 
-				<td><b><font color="#242424">Titular del cuadro</font></b></td> 
-			</tr> 
-			<tr bgcolor="#C6C9D0"> 
-				<td> 
-		<table width="100%" border="0" cellspacing="0" cellpadding="4"> 
-			<tr bgcolor="#FFFFFF"> 
-				<td>Descripcion... <br></td> 
-			</tr> 
-		</table> 
-			</td> 
-				</tr> 
-		</table> 
-	</div>
-</center>
+<div>
+	<section> 
+	    <div class="row">
+	        <div class="col-sm-4">
+	        	<center><h1 class="column-title"><a href="{% url "publi_detalle" 3 %}">Trabajos</a></h1></center>
+	            <div id="carousel-trabajos" class="carousel slide text-center" data-ride="carousel">
+	            	<!-- Controls -->
+	                <div class="btns">
+	                    <a class="btn btn-primary btn-sm" href="#carousel-trabajos" role="button" data-slide="prev">
+	                        <span class="fa fa-angle-left" aria-hidden="true"></span>
+	                        <span class="sr-only">Previous</span>
+	                    </a>
+	                    <a class="btn btn-primary btn-sm" href="#carousel-trabajos" role="button" data-slide="next">
+	                        <span class="fa fa-angle-right" aria-hidden="true"></span>
+	                        <span class="sr-only">Next</span>
+	                    </a>
+	                </div>
+	                <br>
+	                <!-- Wrapper for slides -->
+	                <div class="carousel-inner" role="listbox">
+	  		
+	  					
+	                    <div class="item active">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+		                    </div>
+	                    </div>
+	                    {% for publi in publi3 %}
+	                    <div class="item">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<div class="team-img">
+	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                    		</div>
+	                   			 <div class="team-info">
+		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
+		                        </div>
+		                        <p>{{ publi.descripcion|escape }}</p>
+		                        <span>{{publi.usuario.user.get_full_name}}</span>
+		                        <span>{{publi.fechaInicio}}</span>
+		                    </div>
+	                    </div>
+	                    {% endfor %}
+	                </div>                         
+	            </div>
+	        </div>
+
+	        <div class="col-sm-4">
+	        	<center><h1 class="column-title"><a href="{% url "publi_detalle" 1 %}">Deportes</a></h1></center>
+	            <div id="carousel-deporte" class="carousel slide text-center" data-ride="carousel">
+	            	<!-- Controls -->
+	                <div class="btns">
+	                    <a class="btn btn-primary btn-sm" href="#carousel-deporte" role="button" data-slide="prev">
+	                        <span class="fa fa-angle-left" aria-hidden="true"></span>
+	                        <span class="sr-only">Previous</span>
+	                    </a>
+	                    <a class="btn btn-primary btn-sm" href="#carousel-deporte" role="button" data-slide="next">
+	                        <span class="fa fa-angle-right" aria-hidden="true"></span>
+	                        <span class="sr-only">Next</span>
+	                    </a>
+	                </div>
+	                <br>
+	                <!-- Wrapper for slides -->
+	                <div class="carousel-inner" role="listbox">
+	  		
+	  					
+	                    <div class="item active">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+		                    </div>
+	                    </div>
+	                    {% for publi in publi1 %}
+	                    <div class="item">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<div class="team-img">
+	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                    		</div>
+	                   			 <div class="team-info">
+		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
+		                        </div>
+		                        <p>{{ publi.descripcion|escape }}</p>
+		                        <span>{{publi.usuario.user.get_full_name}}</span>
+		                        <span>{{publi.fechaInicio}}</span>
+		                    </div>
+	                    </div>
+	                    {% endfor %}
+	                </div>                         
+	            </div>
+	        </div>
+
+	        <div class="col-sm-4">
+	            <center><h1 class="column-title"><a href="{% url "publi_detalle" 2 %}">Estudios</a></h1></center>
+	            <div id="carousel-estudio" class="carousel slide text-center" data-ride="carousel">
+	            	<!-- Controls -->
+	                <div class="btns">
+	                    <a class="btn btn-primary btn-sm" href="#carousel-estudio" role="button" data-slide="prev">
+	                        <span class="fa fa-angle-left" aria-hidden="true"></span>
+	                        <span class="sr-only">Previous</span>
+	                    </a>
+	                    <a class="btn btn-primary btn-sm" href="#carousel-estudio" role="button" data-slide="next">
+	                        <span class="fa fa-angle-right" aria-hidden="true"></span>
+	                        <span class="sr-only">Next</span>
+	                    </a>
+	                </div>
+	                <br>
+	                <!-- Wrapper for slides -->
+	                <div class="carousel-inner" role="listbox">  					
+	                    <div class="item active">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+		                    </div>
+	                    </div>
+	                    {% for publi in publi2 %}
+	                    <div class="item">		            
+	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+	                    		<div class="team-img">
+	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                    		</div>
+	                   			 <div class="team-info">
+		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
+		                        </div>
+		                        <p>{{ publi.descripcion|escape }}</p>
+		                        <span>{{publi.usuario.user.get_full_name}}</span>
+		                        <span>{{publi.fechaInicio}}</span>
+		                    </div>
+	                    </div>
+	                    {% endfor %}
+	                </div>                         
+	            </div>
+	        </div>
+	    </div>
+	</section> 
 </div>
+
 {% endblock %}
+
+ 

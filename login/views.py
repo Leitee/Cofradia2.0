@@ -32,10 +32,12 @@ def login_page(request):
 		context_instance=RequestContext(request))
 
 def homepage(request):
-	p = Publicacion.objects.filter(categoria_id=1)
+	p1 = Publicacion.objects.filter(categoria_id=1)
+	p2 = Publicacion.objects.filter(categoria_id=2)
+	p3 = Publicacion.objects.filter(categoria_id=3)
 
 	return render_to_response('homepage.html',
-		{'publi': p[len(p)-1]}, context_instance=RequestContext(request))
+		{'publi1': p1, 'publi2': p2, 'publi3': p3}, context_instance=RequestContext(request))
 
 def logout_page(request):
 	logout(request)
