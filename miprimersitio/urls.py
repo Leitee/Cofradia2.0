@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from login.views import Register
+from aplicacion.views import publi_detalle
 admin.autodiscover()
 
 urlpatterns = [
@@ -25,7 +26,9 @@ urlpatterns = [
     url(r'^logout/$', 'login.views.logout_page', name='logout'),
     url(r'^register/$', Register.as_view(), name='register'),
     url(r'^$', 'login.views.homepage', name='homepage'),
-    url(r'^publi/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_detalle', name='publi_detalle'),
+    url(r'^publi_cat/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_listar', name='publi_listar'),
+    url(r'^publi_detalle/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_detalle',name='publi_detalle'),
+    #url(r'^publi/(?P<id>\d+)/$' ), 
 
 
 ]

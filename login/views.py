@@ -48,6 +48,7 @@ class Register(FormView):
 	form_class = RegisterForm
 	success_url = reverse_lazy('register')
 
+
 	def form_valid(self, form):
 		user = form.save()
 		usu = Usuario()
@@ -56,7 +57,8 @@ class Register(FormView):
 		usu.sexo = form.cleaned_data['sexo']
 		usu.fechaNacimiento = form.cleaned_data['fecha_nacimiento']
 		usu.save()
-		return super(Register, self).form_valid(form)
+
+		return redirect('homepage')
 
 
 """

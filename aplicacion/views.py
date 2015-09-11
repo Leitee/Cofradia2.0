@@ -7,6 +7,15 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def publi_detalle(request, publi_id):
-	publi = Publicacion.objects.filter(categoria_id=publi_id)
+	publis = Publicacion.objects.filter(id=publi_id)
+	publi = publis[0]
 	return render_to_response('publi_detalle.html',
-		{'publis':publi}, context_instance=RequestContext(request))
+		{'publi':publi}, 
+		context_instance=RequestContext(request))
+
+@login_required
+def publi_listar(request, publi_id):
+	publis = Publicacion.objects.filter(categoria_id=publi_id)
+	return render_to_response('publi_listar.html',
+		{'publis':publis}, 
+		context_instance=RequestContext(request))

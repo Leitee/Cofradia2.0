@@ -7,8 +7,10 @@
 <div>
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
 	<br>
- 	<form action="/search/" method="get">	
+ 	<form action="/search/" method="get">
+ 	
         <ul>
+        	{% for publi in publis %}
         	<div id="two">
         		<center><h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
         		<li>{{publi.usuario.user.get_full_name}}</li>
@@ -17,6 +19,7 @@
         		<hr>
         		<br>
       		</div>
+      		{% endfor %}
     	</ul>
 
     </form>
