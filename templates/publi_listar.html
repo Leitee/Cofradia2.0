@@ -12,9 +12,14 @@
         <ul>
         	{% for publi in publis %}
         	<div id="two">
-        		<center><h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
+        		<center>
+                    <!--h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1-->
+                    <a href="{% url "publi_detalle" publi.id %}">
+                        <h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1>
+                    </a>
+                </center>
         		<li>{{publi.usuario.user.get_full_name}}</li>
-        		<li>{{publi.fechaInicio}}</li>
+        		<li>{{publi.fechaInicio}}</li>              
         		<li>{{ publi.descripcion|escape }}</li>
         		<hr>
         		<br>
@@ -26,3 +31,4 @@
 	
 </div>
 {%endblock%}
+

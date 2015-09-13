@@ -10,7 +10,7 @@
 	<section> 
 	    <div class="row">
 	        <div class="col-sm-4">
-	        	<center><h1 class="column-title"><a href="{% url "publi_detalle" 3 %}">Trabajos</a></h1></center>
+	        	<center><h1 class="column-title"><a href="{% url "publi_listar" 3 %}">Trabajos</a></h1></center>
 	            <div id="carousel-trabajos" class="carousel slide text-center" data-ride="carousel">
 	            	<!-- Controls -->
 	                <div class="btns">
@@ -30,14 +30,16 @@
 	  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
 		                    </div>
 	                    </div>
 	                    {% for publi in publi3 %}
 	                    <div class="item">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
-	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                        		<a href="{% url "publi_detalle" publi.id %}">
+                        				<img src="{% static 'images/post.png' %}" height="100">
+                    				</a>
 	                    		</div>
 	                   			 <div class="team-info">
 		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
@@ -53,7 +55,7 @@
 	        </div>
 
 	        <div class="col-sm-4">
-	        	<center><h1 class="column-title"><a href="{% url "publi_detalle" 1 %}">Deportes</a></h1></center>
+	        	<center><h1 class="column-title"><a href="{% url "publi_listar" 1 %}">Deportes</a></h1></center>
 	            <div id="carousel-deporte" class="carousel slide text-center" data-ride="carousel">
 	            	<!-- Controls -->
 	                <div class="btns">
@@ -73,14 +75,16 @@
 	  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
 		                    </div>
 	                    </div>
 	                    {% for publi in publi1 %}
 	                    <div class="item">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
-	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                        		<a href="{% url "publi_detalle" publi.id %}">
+                        				<img src="{% static 'images/post.png' %}" height="100">
+                    				</a>
 	                    		</div>
 	                   			 <div class="team-info">
 		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
@@ -96,7 +100,7 @@
 	        </div>
 
 	        <div class="col-sm-4">
-	            <center><h1 class="column-title"><a href="{% url "publi_detalle" 2 %}">Estudios</a></h1></center>
+	            <center><h1 class="column-title"><a href="{% url "publi_listar" 2 %}">Estudios</a></h1></center>
 	            <div id="carousel-estudio" class="carousel slide text-center" data-ride="carousel">
 	            	<!-- Controls -->
 	                <div class="btns">
@@ -114,14 +118,16 @@
 	                <div class="carousel-inner" role="listbox">  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<h3>Aqui iria la descripcion de la categoria</h3>
+	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
 		                    </div>
 	                    </div>
 	                    {% for publi in publi2 %}
 	                    <div class="item">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
-	                        		<img src="{% static 'images/post.png' %}" height="100">
+	                        		<a href="{% url "publi_detalle" publi.id %}">
+                        				<img src="{% static 'images/post.png' %}" height="100">
+                    				</a>
 	                    		</div>
 	                   			 <div class="team-info">
 		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            

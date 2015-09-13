@@ -12,9 +12,11 @@
         	<div id="two">
         		<center><h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
         		<li>{{publi.usuario.user.get_full_name}}</li>
-        		<li>{{publi.fechaInicio}}</li>
-        		<li>{{ publi.descripcion|escape }}</li>
-        		<hr>
+        		<li>Fecha de Inicio: {{publi.fechaInicio}}</li>
+                <li>Fecha de Cierre: {{publi.fechaCierre}}</li>  
+        		<li>Descripcion: {{ publi.descripcion|escape }}</li>
+        		<li>Cantidad de Postulantes que se necesitan: {{publi.cantidad}} persona(s)</li>  
+                <hr>
         		<br>
       		</div>
     	</ul>
@@ -23,3 +25,5 @@
 	
 </div>
 {%endblock%}
+
+
