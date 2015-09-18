@@ -4,6 +4,22 @@
 
 {% block content %}
 
+<!-- aca empieza el video -->
+<div class="backVideo">
+
+	<div class="video"style="float:right;">
+		<iframe style="margin-top:5px;"width="400" height="215" src="https://www.youtube.com/embed/Yzd1Jy3d2f4" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<div style="float=left;">
+    	<h1 class="textoVideo">Que es Cofradía?</h1>
+    	<h1 class="textoVideo">Terminos y Condiciones</h1>
+    	<h1 class="textoVideo">Cuantas categorias hay?</h1>
+	</div>
+
+</div>
+<!-- aca termina el video -->
+
+
  <!-- Publicaciones -->
 
 <div>
@@ -85,13 +101,13 @@
 	                        		<a href="{% url "publi_detalle" publi.id %}">
                         				<img src="{% static 'images/post.png' %}" height="100">
                     				</a>
-	                    		</div>
-	                   			 <div class="team-info">
-		                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
-		                        </div>
-		                        <p>{{ publi.descripcion|escape }}</p>
-		                        <span>{{publi.usuario.user.get_full_name}}</span>
-		                        <span>{{publi.fechaInicio}}</span>
+		                    		</div>
+		                   			 <div class="team-info">
+			                            <h3>{{ publi.nombre|escape|capfirst }}</h3>		                            
+			                        </div>
+			                        <p>{{ publi.descripcion|escape }}</p>
+			                        <span>{{publi.usuario.user.get_full_name}}</span>
+			                        <span>{{publi.fechaInicio}}</span>		                        
 		                    </div>
 	                    </div>
 	                    {% endfor %}

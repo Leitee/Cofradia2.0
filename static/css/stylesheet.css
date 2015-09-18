@@ -73,12 +73,13 @@ body{
 }
 .izquierda{
     float: left;
+    margin-right: 60px; 
 }
 /*search*/
 .buscador{
     border-bottom-width: 0px;
     margin-bottom: 0px;
-    margin-top: 20px;
+    margin-top: 35px;
     border-radius: 5px;
     box-shadow: 4px;
 }
