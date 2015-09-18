@@ -48,7 +48,7 @@
                     <input class="buscador izquierda" action="" placeholder='Buscar...' name="buscador"> 
                     <ul class="nav navbar-nav">
                     {% if user.is_authenticated %}
-                        <li class="scroll"><a href="{% url "homepage" %}">{{user.first_name}}</a> </li>
+                        <li class="scroll"><a href="{% url "perfil_usuario" user.id %}">{{user.first_name|capfirst}}</a> </li>
                         <li class="scroll"><a href="{% url "logout" %}">Cerrar Sesion</a> </li>
                     {% else %}
                         <li class="scroll"><a href="{% url "login" %}">Iniciar Sesion</a></li>

@@ -28,8 +28,7 @@ urlpatterns = [
     url(r'^$', 'login.views.homepage', name='homepage'),
     url(r'^publi_cat/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_listar', name='publi_listar'),
     url(r'^publi_detalle/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_detalle',name='publi_detalle'),
-
-
-
+    url(r'^perfil_usuario/(?P<usu_id>\d+)/$', 'aplicacion.views.perfil_usuario',name='perfil_usuario'),
+    url(r'^crear_publi/$', 'aplicacion.views.crear_publi', name='crear_publi'),
 
 ]
