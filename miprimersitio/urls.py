@@ -30,14 +30,9 @@ urlpatterns = [
     url(r'^publi_detalle/(?P<publi_id>\d+)/$', 'aplicacion.views.publi_detalle',name='publi_detalle'),
     url(r'^perfil_usuario/(?P<usu_id>\d+)/$', 'aplicacion.views.perfil_usuario',name='perfil_usuario'),
     url(r'^crear_publi/$', 'aplicacion.views.crear_publi', name='crear_publi'),
-<<<<<<< HEAD
     url(r'^admin_usuario/$', 'aplicacion.views.admin_usuario', name='administrar_usuario'),
     url(r'^publi_creada/(?P<user_id>\d+)/$', 'aplicacion.views.publi_Creada', name='publi_creada'),
     #url(r'^buscar/$', 'aplicacion.views.buscar', name='buscar')
     url(r'^postularse/(?P<user_id>\d+)/(?P<publi_id>\d+)$', 'aplicacion.views.postularse', name='postularse'),
     url(r'^publi_postuladas/(?P<user_id>\d+)/$', 'aplicacion.views.publi_postuladas', name='publi_postuladas'),
 ]
-=======
-
-]
->>>>>>> 9c09e0d8863de595321fe547205f61e70b291d4c
