@@ -1,5 +1,9 @@
 from django.http import HttpResponse, Http404
+<<<<<<< HEAD
 from aplicacion.models import Publicacion, Usuario, Postulante
+=======
+from aplicacion.models import Publicacion, Usuario
+>>>>>>> 9c09e0d8863de595321fe547205f61e70b291d4c
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
 from django.utils import timezone
@@ -28,6 +32,7 @@ def perfil_usuario(request, usu_id):
 def crear_publi(request):
 	form = PublicacionForm()
 	return render_to_response('crear_publi.html', {'form':form},
+<<<<<<< HEAD
 		context_instance=RequestContext(request))
 
 @login_required
@@ -69,3 +74,6 @@ def publi_postuladas(request,user_id):
 	return render_to_response('publi_listar.html', {'publis':publis},
 		context_instance=RequestContext(request))
 
+=======
+		context_instance=RequestContext(request))
+>>>>>>> 9c09e0d8863de595321fe547205f61e70b291d4c

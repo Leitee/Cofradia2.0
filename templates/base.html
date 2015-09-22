@@ -45,6 +45,7 @@
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
+<<<<<<< HEAD
                         <form class="navbar-form navbar-left" role="search" >
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Search" name="buscar">
@@ -54,6 +55,12 @@
                     <ul class="nav navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="scroll"><a href="{% url "administrar_usuario" %}">{{user.first_name|capfirst}}</a> </li>
+=======
+                    <input class="buscador izquierda" action="" placeholder='Buscar...' name="buscador"> 
+                    <ul class="nav navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="scroll"><a href="{% url "perfil_usuario" user.id %}">{{user.first_name|capfirst}}</a> </li>
+>>>>>>> 9c09e0d8863de595321fe547205f61e70b291d4c
                         <li class="scroll"><a href="{% url "logout" %}">Cerrar Sesion</a> </li>
                     {% else %}
                         <li class="scroll"><a href="{% url "login" %}">Iniciar Sesion</a></li>

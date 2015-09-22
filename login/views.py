@@ -7,7 +7,10 @@ from aplicacion.models import Publicacion, Usuario
 from datetime import date
 from django.core.urlresolvers import reverse_lazy
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c09e0d8863de595321fe547205f61e70b291d4c
 import pdb #pdb.set_trace()
 
 def login_page(request):
