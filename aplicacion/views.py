@@ -42,8 +42,10 @@ def publi_Creada(request,user_id):
 	return render_to_response('publi_listar.html', {'publis':publis}, 
 		context_instance=RequestContext(request))
 
-@login_required#todavia no anda
+@login_required
 def buscar(request):
+	valor = str(request.get['buscar'])
+	print(valor)
 	publis = Publicacion.objects.filter(nombre__contains=request.get['buscar'])
 	return render_to_response('publi_listar.html',{'publis':publis},
 		context_instance=RequestContext(request))
@@ -57,15 +59,16 @@ def postularse(request,user_id,publi_id):
 
 @login_required
 def publi_postuladas(request,user_id):
-	postulaciones = Publicacion.objects.filter(usuario_id=user_id)
+	postulaciones = Postulante.objects.filter(usuario_id=user_id)
 	publis = list()
 	for postulacion in postulaciones:
-		valor = postulacion.usuario_id
-		print postulacion.usuario_id
-		publi = Publicacion.objects.get(id = 2)
+		valor = int(postulacion.publicacion_id)
+		publi = Publicacion.objects.get( id = valor)
 		if (publi != None):
 			publis.append(publi)
 
+	for publi in publis:
+		print(publi)
+
 	return render_to_response('publi_listar.html', {'publis':publis},
 		context_instance=RequestContext(request))
-

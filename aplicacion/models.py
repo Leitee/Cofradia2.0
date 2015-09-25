@@ -15,7 +15,7 @@ class Categoria(models.Model):
 	descripcion = models.CharField(max_length= 200)
 
 	def __str__(self):
-		return self.nombre
+		return self.nombre	
 
 
 class Publicacion(models.Model):

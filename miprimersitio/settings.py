@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'crispy_forms', 
     'django.contrib.staticfiles',
     'aplicacion',
 ]
@@ -114,3 +115,9 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 
 #AUTH_PROFILE_MODULE = 'aplicacion.Usuario'
+
+EMAIL_HOST = 'mail.google.com'
+EMAIL_HOST_USER = 'cofradiaChaco@gmail.com'
+EMAIL_HOST_PASSWORD = 'cofradia123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

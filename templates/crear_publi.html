@@ -7,7 +7,7 @@
     {% if message %}
     <b>{{message}}</b>    	
     {% endif %}
-    <form action="." method="post"> 
+    <form action="/crear_publi/ user.id" method="post"> 
     	{% csrf_token %}
     	<!-- aqui se podria incluir el snippet {% include "form_snippets.html" %} -->
     	{% include "form_snippets.html" %} 
