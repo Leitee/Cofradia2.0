@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.extras.widgets import SelectDateWidget
 
-CHOICES=[(1,'Deportes'),(2,'Estudios'),(3,'Trabajos')]
+CHOICES=[(1,'Deporte'),(2,'Trabajo'),(3,'Estudio')]
 
 class PublicacionForm(forms.Form):
 	titulo = forms.CharField(required=True)

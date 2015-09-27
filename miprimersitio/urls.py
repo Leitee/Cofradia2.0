@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^publi_creada/(?P<user_id>\d+)/$', 'aplicacion.views.publi_Creada', name='publi_creada'),
     url(r'^postularse/(?P<user_id>\d+)/(?P<publi_id>\d+)$', 'aplicacion.views.postularse', name='postularse'),
     url(r'^publi_postuladas/(?P<user_id>\d+)/$', 'aplicacion.views.publi_postuladas', name='publi_postuladas'),
-    #url(r'^guardar_publi/(?P<user_id>\d+)/$', 'aplicacion.views.guardar_publi', name='guardar_publi'),
+    url(r'^guardar_publi/(?P<user_id>\d+)/$', 'aplicacion.views.guardar_publi', name='guardar_publi'),
     url(r'^buscar/$', 'aplicacion.views.buscar', name='buscar')
 
 ]

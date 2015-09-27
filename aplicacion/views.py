@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from aplicacion.forms import PublicacionForm
+import datetime
 
 @login_required
 def publi_detalle(request, publi_id):
@@ -72,3 +73,21 @@ def publi_postuladas(request,user_id):
 
 	return render_to_response('publi_listar.html', {'publis':publis},
 		context_instance=RequestContext(request))
+
+@login_required
+def guardar_publi(request,user_id):
+	x = datetime.datetime.now()
+	cierre = request.GET['fecha_cierre_year'] + "-" + request.GET['fecha_cierre_month']+ "-"+request.GET['fecha_cierre_day']
+	inicio = str(x.year) + "-" + str(x.month) + "-" + str(x.day)
+	publi = Publicacion(nombre = request.GET['titulo'],
+		fechaInicio = inicio ,
+		fechaCierre = cierre ,
+		cantidad = request.GET['integrantes'],
+		descripcion = request.GET['descripcion'],
+		usuario_id = user_id,
+		categoria_id = request.GET['categoria'])
+	publi.save()
+
+	return render_to_response('homepage.html', 
+		context_instance=RequestContext(request))
+
