@@ -14,13 +14,13 @@
 {% block titulo %} Bienvenido {% endblock %}
 {% block content %}
 <!-- Login y registro--> 
-<div>
+<div style="margin-bottom:200px;">
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
 	<br>
  	<form action="/search/" method="get">	
         <ul>
         	<div id="two">
-        		<center><h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
+        		<center><h1 class="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
 
                 {% if user.id != publi.usuario_id %}
                     {% if user.id in resguardo %}
@@ -57,10 +57,10 @@
                 {% endif %}
 
 
-                <li>Nombre del dueño de la publicacion :{{publi.usuario}}</li>
-        		<li>Fecha de Inicio: {{publi.fechaInicio}}</li>
-                <li>Fecha de Cierre: {{publi.fechaCierre}}</li>  
-        		<li>Descripcion: {{ publi.descripcion|escape }}</li>
+                <li class="fuenteDescrip">Nombre del dueño de la publicacion :{{publi.usuario}}</li>
+        		<li class="fuenteDescrip">Fecha de Inicio: {{publi.fechaInicio}}</li>
+                <li class="fuenteDescrip">Fecha de Cierre: {{publi.fechaCierre}}</li>  
+        		<li class="fuenteDescrip">Descripcion: {{ publi.descripcion|escape }}</li>
         		<li>Cantidad de Postulantes que se necesitan: {{publi.cantidad}} persona(s)</li>                              
         		<br>
       		</div>
