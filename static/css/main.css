@@ -8,6 +8,19 @@ Author URL: http://shapebootstrap.net
 /*************************
 *******Typography******
 **************************/
+
+
+/*AGREGUE FUENTE - OSCAR*/
+
+
+@font-face{
+  font-family: 'Coco';
+  src:url('../fonts/Coco.ttf');
+}
+
+
+
+/*AGREGUE FUENTE - OSCAR*/
 body {
   padding-top: 100px;
   background: #fff;
@@ -42,6 +55,24 @@ hr {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
 }
+
+
+
+/*DESIGNE CLASES - OSCAR*/
+
+.logaso{
+  background-image:url('../images/logo.png');
+  background-size: 180px 50px;
+  width: 180px;
+  height: 50px;
+  margin: 20px 0px 5px 0px;
+
+}.fuentes{
+  font-family: Coco;
+}
+
+
+/*DESIGNE CLASES - OSCAR*/
 .gradiant {
   background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
   background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
