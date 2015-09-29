@@ -10,7 +10,11 @@ import datetime
 @login_required
 def publi_detalle(request, publi_id):
 	publi = Publicacion.objects.get(id=publi_id)
-	return render_to_response('publi_detalle.html',	{'publi':publi}, 
+	postulacion = Postulante.objects.filter(publicacion_id = publi_id)
+	resguardo = list()
+	for p in postulacion:
+		resguardo.append(p.usuario_id)
+	return render_to_response('publi_detalle.html',	{'publi':publi,'resguardo':resguardo, 'postulacion':postulacion},
 		context_instance=RequestContext(request))
 
 @login_required
@@ -46,7 +50,6 @@ def publi_Creada(request,user_id):
 @login_required
 def buscar(request):
 	valor = str(request.get['buscar'])
-	print(valor)
 	publis = Publicacion.objects.filter(nombre__contains=request.get['buscar'])
 	return render_to_response('publi_listar.html',{'publis':publis},
 		context_instance=RequestContext(request))
@@ -67,10 +70,6 @@ def publi_postuladas(request,user_id):
 		publi = Publicacion.objects.get( id = valor)
 		if (publi != None):
 			publis.append(publi)
-
-	for publi in publis:
-		print(publi)
-
 	return render_to_response('publi_listar.html', {'publis':publis},
 		context_instance=RequestContext(request))
 
@@ -90,4 +89,3 @@ def guardar_publi(request,user_id):
 
 	return render_to_response('homepage.html', 
 		context_instance=RequestContext(request))
-

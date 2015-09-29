@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from login.views import Register
-from aplicacion.views import publi_detalle
+#from aplicacion.views import publi_detalle
 admin.autodiscover()
 
 urlpatterns = [
