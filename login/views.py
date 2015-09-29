@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from aplicacion.models import Publicacion, Usuario
 from datetime import date
 from django.core.urlresolvers import reverse_lazy
+from aplicacion.models import Categoria
 
 
 import pdb #pdb.set_trace()
@@ -36,9 +37,12 @@ def homepage(request):
 	p1 = Publicacion.objects.filter(categoria_id=1)
 	p2 = Publicacion.objects.filter(categoria_id=2)
 	p3 = Publicacion.objects.filter(categoria_id=3)
+	deporte = Categoria.objects.get(nombre = 'Deporte')
+	estudio = Categoria.objects.get(nombre = 'Estudio')
+	trabajo = Categoria.objects.get(nombre = 'Trabajo')
 
 	return render_to_response('homepage.html',
-		{'publi1': p1, 'publi2': p2, 'publi3': p3}, context_instance=RequestContext(request))
+		{'publi1': p1, 'publi2': p2, 'publi3': p3,'estudio':estudio,'trabajo':trabajo,'deporte':deporte}, context_instance=RequestContext(request))
 
 def logout_page(request):
 	logout(request)
