@@ -42,7 +42,7 @@
 	  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
+	                    		<h3>{{trabajo.descripcion}}</h3>
 		                    </div>
 	                    </div>
 	                    {% for publi in publi3 %}
@@ -50,7 +50,7 @@
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
 	                        		<a href="{% url "publi_detalle" publi.id %}">
-                        				<img src="{% static 'images/post.png' %}" height="100">
+                        				<img src="{% static 'images/trabajo.jpg' %}" height="100">
                     				</a>
 	                    		</div>
 	                   			 <div class="team-info">
@@ -87,7 +87,7 @@
 	  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
+	                    		<h3>{{deporte.descripcion}}</h3>
 		                    </div>
 	                    </div>
 	                    {% for publi in publi1 %}
@@ -95,7 +95,7 @@
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
 	                        		<a href="{% url "publi_detalle" publi.id %}">
-                        				<img src="{% static 'images/post.png' %}" height="100">
+                        				<img src="{% static 'images/deporte.jpg' %}" height="100">
                     				</a>
 		                    		</div>
 		                   			 <div class="team-info">
@@ -130,7 +130,7 @@
 	                <div class="carousel-inner" role="listbox">  					
 	                    <div class="item active">		            
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-	                    		<!--h3>Aqui iria la descripcion de la categoria</h3-->
+	                    		<h3>{{estudio.descripcion}}</h3>
 		                    </div>
 	                    </div>
 	                    {% for publi in publi2 %}
@@ -138,7 +138,7 @@
 	                        <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
 	                    		<div class="team-img">
 	                        		<a href="{% url "publi_detalle" publi.id %}">
-                        				<img src="{% static 'images/post.png' %}" height="100">
+                        				<img src="{% static 'images/estudio.jpg' %}" height="100">
                     				</a>
 	                    		</div>
 	                   			 <div class="team-info">
