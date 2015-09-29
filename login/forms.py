@@ -9,7 +9,7 @@ class LoginForm(forms.Form):
 	password = forms.CharField(widget=forms.PasswordInput(), required=True)
 
 class RegisterForm(UserCreationForm):
-	fecha_nacimiento = forms.DateField(widget=SelectDateWidget(), required=True)
+	fecha_nacimiento = forms.DateField(widget=SelectDateWidget(years=range(1900, 2100)), required=True)
 	telefono = forms.CharField()
 	sexo = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect(), required=True) 
 	
