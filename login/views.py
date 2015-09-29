@@ -37,9 +37,9 @@ def homepage(request):
 	p1 = Publicacion.objects.filter(categoria_id=1)
 	p2 = Publicacion.objects.filter(categoria_id=2)
 	p3 = Publicacion.objects.filter(categoria_id=3)
-	deporte = Categoria.objects.get(nombre = 'Deporte')
-	estudio = Categoria.objects.get(nombre = 'Estudio')
-	trabajo = Categoria.objects.get(nombre = 'Trabajo')
+	deporte = Categoria.objects.get(nombre = 'Deportes')
+	estudio = Categoria.objects.get(nombre = 'Estudios')
+	trabajo = Categoria.objects.get(nombre = 'Trabajos')
 
 	return render_to_response('homepage.html',
 		{'publi1': p1, 'publi2': p2, 'publi3': p3,'estudio':estudio,'trabajo':trabajo,'deporte':deporte}, context_instance=RequestContext(request))
