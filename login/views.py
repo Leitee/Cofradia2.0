@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from django.views.generic import FormView
+from django.views.generic import FormView, CreateView
 from login.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from aplicacion.models import Publicacion, Usuario
@@ -62,17 +62,19 @@ class Register(FormView):
 		return redirect('homepage')
 
 
-"""
 def register(request):	
+	message = None
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
 		data = request.POST.copy()
 		if form.is_valid():
 			new_user = form.save(data)
-			logoid(new_user)
+			logoin(new_user)
 			return redirect('homepage')
+		else:
+			message = "Datos incorrectos, campos vacios o invalidos"
 	else:
 		form = RegisterForm()
 	return render_to_response('register.html', 
-		{'form' : form},
-		context_instance=RequestContext(request))"""
+		{'form' : form , 'message' : message},
+		context_instance=RequestContext(request))

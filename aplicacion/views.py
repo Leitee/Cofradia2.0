@@ -25,7 +25,7 @@ def publi_listar(request, publi_id):
 
 @login_required
 def perfil_usuario(request, usu_id):
-	usuario = Usuario.objects.get(id=usu_id)
+	usuario = Usuario.objects.get(user_id=usu_id)
 	return render_to_response('perfil_usuario.html', {'usuario':usuario},
 		context_instance=RequestContext(request))
 
