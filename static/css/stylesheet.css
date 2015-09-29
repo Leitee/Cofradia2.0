@@ -23,8 +23,10 @@ body{
     margin: 0 0 0 0;
 }
 .backVideo{
-    background-color: black;
-    margin: 0 0 0 0;
+    background-image:url('../images/back1.jpg');
+    margin: 5px 0px 5px 0px;
+        height: 259px;
+    width: 1304px;
 }
 .textoVideo{
     font-family: Coco;
