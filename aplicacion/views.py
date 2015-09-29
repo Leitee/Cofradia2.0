@@ -93,9 +93,10 @@ def guardar_publi(request,user_id):
 
 @login_required
 def enviar_mail(request, unMail):
-	send_mail('Hola Mundo - Cofradia2.0', 'Este es un mensaje de cofradia', unMail,[unMail], fail_silently=False)
+	send_mail('Hola Mundo - Cofradia2.0', 'Este es un mensaje de cofradia', 'cofradiaChaco@gmail.com',[unMail], fail_silently=False)
 	return render_to_response('homepage.html',
 		context_instance=RequestContext(request))
+
 #@login_required
 #def enviar_mail(request):
 #	send_mail('Hola Mundo - Cofradia2.0', 'Hola Sole', 'lm23moreno@gmail.com ',['lm23moreno@gmail.com '], fail_silently=False)
