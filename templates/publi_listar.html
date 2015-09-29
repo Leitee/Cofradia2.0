@@ -4,12 +4,13 @@
 {% block content %}
 
 <!-- Login y registro--> 
-<div>
+<center>
+<div style="margin-left: 135px;">
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
 	<br>
  	<form action="/search/" method="get">
  	
-        <ul>
+        <ul style="margin-bottom: 221px;">
         	{% for publi in publis %}
                 <div class="container-fluid">
                     <div class="row">
@@ -53,5 +54,6 @@
     </form>
 	
 </div>
+</center>
 {%endblock%}
 

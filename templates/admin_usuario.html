@@ -4,11 +4,13 @@
 
 <center>
     <!--input type="button" value="Crear Publicacion"-->
-    <li class="scroll"><a href="{% url "crear_publi" %}">Crear Publicacion</a> </li>
-    <li class="scroll"><a href="{% url "publi_creada" user.id %}">Ver Publicaciones Creadas</a> </li>
-    <li class="scroll"><a href="{% url "publi_postuladas" user.id %}">Ver Publicaciones Postuladas</a> </li>
-    <li class="scroll"><a href="{% url "perfil_usuario" user.id %}">Ver Perfil de Usuario</a> </li>
- 
+   
+    <div>
+    <li class="scroll" style="margin-bottom: 20px;margin-top: 20px;"><a href="{% url "crear_publi" %}"><button class="btn btn-primary" type="submit">Crear Publicacion</button></a> </li>
+    <li class="scroll" style="margin-bottom: 20px;"><a href="{% url "publi_creada" user.id %}"><button class="btn btn-primary" type="submit">Ver Publicaciones Creadas</button></a> </li>
+    <li class="scroll" style="margin-bottom: 20px;"><a href="{% url "publi_postuladas" user.id %}"><button class="btn btn-primary" type="submit">Ver Publicaciones Postuladas</button></a> </li>
+    <li class="scroll" style="margin-bottom: 20px;"><a href="{% url "perfil_usuario" user.id %}">Ver Perfil de Usuario</a> </li>
+ </div>
  
     <!--h2>Crear Publicación</h2>
 
