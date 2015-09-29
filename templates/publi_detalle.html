@@ -13,7 +13,6 @@
 {% endblock extra_head %}
 {% block titulo %} Bienvenido {% endblock %}
 {% block content %}
-
 <!-- Login y registro--> 
 <div>
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
@@ -32,17 +31,37 @@
                     {% endif %}
                 {% else %}
                     <p>Usted es el dueño de la publicacion</p>
-                    {% for postu in postulacion %}
-                    <li>Usuarios Postulados :{{postu.usuario}}</li>                    
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Usuario</th>
+                          <th>Nombre</th>
+                          <th>Email</th>
+                          <th>Accion</th>
+                        </tr>
+                      </thead>
+                     {% for postu in postulacion %}
+                      <tbody>
+                        <tr>
+                          <td>{{postu.usuario.user.username}}</td>
+                          <td>{{postu.usuario.user.first_name}}</td>
+                          <td>{{postu.usuario.user.email}}</td>
+                          <td>
+                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Aceptar</a> |
+                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Rechazar</a>
+                          </td>
+                        </tr>
+                      </tbody>
                     {% endfor%}
+                    </table>
                 {% endif %}
+
 
                 <li>Nombre del dueño de la publicacion :{{publi.usuario}}</li>
         		<li>Fecha de Inicio: {{publi.fechaInicio}}</li>
                 <li>Fecha de Cierre: {{publi.fechaCierre}}</li>  
         		<li>Descripcion: {{ publi.descripcion|escape }}</li>
         		<li>Cantidad de Postulantes que se necesitan: {{publi.cantidad}} persona(s)</li>                              
-                <hr>
         		<br>
       		</div>
     	</ul>

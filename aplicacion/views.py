@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from aplicacion.forms import PublicacionForm
 import datetime
+from django.core.mail import send_mail
 
 @login_required
 def publi_detalle(request, publi_id):
@@ -89,3 +90,14 @@ def guardar_publi(request,user_id):
 
 	return render_to_response('homepage.html', 
 		context_instance=RequestContext(request))
+
+@login_required
+def enviar_mail(request, unMail):
+	send_mail('Hola Mundo - Cofradia2.0', 'Este es un mensaje de cofradia', unMail,[unMail], fail_silently=False)
+	return render_to_response('homepage.html',
+		context_instance=RequestContext(request))
+#@login_required
+#def enviar_mail(request):
+#	send_mail('Hola Mundo - Cofradia2.0', 'Hola Sole', 'lm23moreno@gmail.com ',['lm23moreno@gmail.com '], fail_silently=False)
+#	return render_to_response('homepage.html',
+#		context_instance=RequestContext(request))
