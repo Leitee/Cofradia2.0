@@ -1,7 +1,7 @@
 /* Fuentes */
 @font-face{
- font-family: 'Cyberfunk';
- src: url('../font/Cyberfunk.ttf');
+ font-family: 'geo';
+ src: url('../font/geo.ttf');
 }
 @font-face{
  font-family: 'Coco';
@@ -22,11 +22,17 @@ h1{
 body{
     margin: 0 0 0 0;
 }
+.fuenteDescrip{
+    font-family: Coco;
+
+}   
 .backVideo{
     background-image:url('../images/back1.jpg');
-    margin: 5px 0px 5px 0px;
+    margin: 16px 0px 5px 0px;
         height: 259px;
     width: 1304px;
+     background-size: 80%;
+     background-position: 5px;
 }
 .textoVideo{
     font-family: Coco;
@@ -168,4 +174,9 @@ body{
 }
 .td{
     padding-right: 75px;
+}
+.tituloDescription{
+    font-family: geo;
+    font-size: 62px;
+    margin-bottom: 50px;
 }
