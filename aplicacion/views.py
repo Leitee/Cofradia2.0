@@ -6,11 +6,16 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from aplicacion.forms import PublicacionForm
 import datetime
+from django.core.mail import send_mail
 
 @login_required
 def publi_detalle(request, publi_id):
 	publi = Publicacion.objects.get(id=publi_id)
-	return render_to_response('publi_detalle.html',	{'publi':publi}, 
+	postulacion = Postulante.objects.filter(publicacion_id = publi_id)
+	resguardo = list()
+	for p in postulacion:
+		resguardo.append(p.usuario_id)
+	return render_to_response('publi_detalle.html',	{'publi':publi,'resguardo':resguardo, 'postulacion':postulacion},
 		context_instance=RequestContext(request))
 
 @login_required
@@ -21,7 +26,7 @@ def publi_listar(request, publi_id):
 
 @login_required
 def perfil_usuario(request, usu_id):
-	usuario = Usuario.objects.get(id=usu_id)
+	usuario = Usuario.objects.get(user_id=usu_id)
 	return render_to_response('perfil_usuario.html', {'usuario':usuario},
 		context_instance=RequestContext(request))
 
@@ -46,7 +51,6 @@ def publi_Creada(request,user_id):
 @login_required
 def buscar(request):
 	valor = str(request.get['buscar'])
-	print(valor)
 	publis = Publicacion.objects.filter(nombre__contains=request.get['buscar'])
 	return render_to_response('publi_listar.html',{'publis':publis},
 		context_instance=RequestContext(request))
@@ -67,10 +71,6 @@ def publi_postuladas(request,user_id):
 		publi = Publicacion.objects.get( id = valor)
 		if (publi != None):
 			publis.append(publi)
-
-	for publi in publis:
-		print(publi)
-
 	return render_to_response('publi_listar.html', {'publis':publis},
 		context_instance=RequestContext(request))
 
@@ -91,3 +91,13 @@ def guardar_publi(request,user_id):
 	return render_to_response('homepage.html', 
 		context_instance=RequestContext(request))
 
+@login_required
+def enviar_mail(request, unMail):
+	send_mail('Hola Mundo - Cofradia2.0', 'Este es un mensaje de cofradia', unMail,[unMail], fail_silently=False)
+	return render_to_response('homepage.html',
+		context_instance=RequestContext(request))
+#@login_required
+#def enviar_mail(request):
+#	send_mail('Hola Mundo - Cofradia2.0', 'Hola Sole', 'lm23moreno@gmail.com ',['lm23moreno@gmail.com '], fail_silently=False)
+#	return render_to_response('homepage.html',
+#		context_instance=RequestContext(request))

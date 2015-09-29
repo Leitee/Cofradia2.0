@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
+from login.views import Register
+#from aplicacion.views import publi_detalle
 from login.views import register, Register
 from aplicacion.views import publi_detalle
 admin.autodiscover()
@@ -36,6 +38,8 @@ urlpatterns = [
     url(r'^postularse/(?P<user_id>\d+)/(?P<publi_id>\d+)$', 'aplicacion.views.postularse', name='postularse'),
     url(r'^publi_postuladas/(?P<user_id>\d+)/$', 'aplicacion.views.publi_postuladas', name='publi_postuladas'),
     url(r'^guardar_publi/(?P<user_id>\d+)/$', 'aplicacion.views.guardar_publi', name='guardar_publi'),
-    url(r'^buscar/$', 'aplicacion.views.buscar', name='buscar')
+    url(r'^buscar/$', 'aplicacion.views.buscar', name='buscar'),
+    url(r'^enviar_mail/(?P<unMail>\d+)/$', 'aplicacion.views.enviar_mail', name='enviar_mail')
+    #url(r'^enviar_mail/$', 'aplicacion.views.enviar_mail', name='enviar_mail')
 
 ]

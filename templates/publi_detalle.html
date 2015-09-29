@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block extra_head %}
+  <style type="text/css">
+     body {
+       padding-top: 50px;
+     }
+     .start-template {
+       padding: 40px 15px;
+       text-align: center;
+     }
+  </style>
+{% endblock extra_head %}
 {% block titulo %} Bienvenido {% endblock %}
 {% block content %}
-
 <!-- Login y registro--> 
 <div>
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
@@ -11,22 +21,47 @@
         <ul>
         	<div id="two">
         		<center><h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
-                
-                {% if user.id != publi.usuario %}
-                    Postularse a la publicacion: 
-                    <a href="{% url "postularse" user.id publi.id  %}">Postularse al Evento</a> 
+
+                {% if user.id != publi.usuario_id %}
+                    {% if user.id in resguardo %}
+                        Ya se encuentra postulado en la publicacion
+                    {% else %}
+                        Postularse a la publicacion: 
+                        <a href="{% url "postularse" user.id publi.id  %}">Postularse al Evento</a> 
+                    {% endif %}
                 {% else %}
-                <p>Usted es el dueño de la publicacion</p>
+                    <p>Usted es el dueño de la publicacion</p>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Usuario</th>
+                          <th>Nombre</th>
+                          <th>Email</th>
+                          <th>Accion</th>
+                        </tr>
+                      </thead>
+                     {% for postu in postulacion %}
+                      <tbody>
+                        <tr>
+                          <td>{{postu.usuario.user.username}}</td>
+                          <td>{{postu.usuario.user.first_name}}</td>
+                          <td>{{postu.usuario.user.email}}</td>
+                          <td>
+                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Aceptar</a> |
+                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Rechazar</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    {% endfor%}
+                    </table>
                 {% endif %}
 
-        		<li>{{publi.usuario.user.get_full_name}}</li>
+
+                <li>Nombre del dueño de la publicacion :{{publi.usuario}}</li>
         		<li>Fecha de Inicio: {{publi.fechaInicio}}</li>
                 <li>Fecha de Cierre: {{publi.fechaCierre}}</li>  
         		<li>Descripcion: {{ publi.descripcion|escape }}</li>
         		<li>Cantidad de Postulantes que se necesitan: {{publi.cantidad}} persona(s)</li>                              
-
-
-                <hr>
         		<br>
       		</div>
     	</ul>
