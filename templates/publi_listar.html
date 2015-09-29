@@ -11,19 +11,42 @@
  	
         <ul>
         	{% for publi in publis %}
-        	<div id="two">
-        		<center>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+
+                            {% if publi.categoria_id == 1 %}
+                                <img class="img-circle" alt="Bootstrap Image Preview" src="{% static 'images/deporte.jpg' %}" height="200">
+                            {% endif%}                            
+                            {% if publi.categoria_id == 2 %}
+                                <img class="img-circle" alt="Bootstrap Image Preview" src="{% static 'images/estudio.jpg' %}" height="200">
+                            {% endif%}                            
+                            {% if publi.categoria_id == 3 %}
+                                <img class="img-circle" alt="Bootstrap Image Preview" src="{% static 'images/trabajo.jpg' %}" height="200">
+                            {% endif%}                            
+
+                        </div>
+                        <div class="col-md-3">
+            <div id="two">
+                <center>
                     <!--h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1-->
                     <a href="{% url "publi_detalle" publi.id %}">
                         <h1 id="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1>
                     </a>
                 </center>
-        		<li>{{publi.usuario.user.get_full_name}}</li>
-        		<li>{{publi.fechaInicio}}</li>              
-        		<li>{{ publi.descripcion|escape }}</li>
-        		<hr>
-        		<br>
-      		</div>
+                <li>{{publi.usuario.user.get_full_name}}</li>
+                <li>{{publi.fechaInicio}}</li>              
+                <li>{{ publi.descripcion|escape }}</li>
+                <hr>
+                <br>
+            </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
       		{% endfor %}
     	</ul>
 

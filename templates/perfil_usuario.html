@@ -9,21 +9,36 @@
  	<form action="/search/" method="get">	
         <ul>
         	<div id="two">
-        		<center><h1 id="tituloDescription">{{ usuario.user.username|escape|capfirst }}</h1></center>
-                <hr>
-        		<li>Nombre{{usuario.user.get_full_name}}</li>
-        		<li>E-mail{{usuario.user.email}}</li>
-                <li>Fecha de NAcimiento: {{usuario.fechaNacimiento}}</li>  
-        		<li>Sexo: {{usuario.sexo}}</li>
-        		<li>Telefono: {{usuario.telefono}}</li>  
-                <hr>
-        		<br>
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-2">
+                            
+                            {% if usuario.sexo == 'Hombre' %}
+                                <img class="img-circle" alt="Bootstrap Image Preview" src="{% static 'images/varon.jpg' %}" height="200">
+                            
+                            {% else%}
+                                <img class="img-circle" alt="Bootstrap Image Preview" src="{% static 'images/mujer.jpg' %}" height="200">
+
+                            {% endif%}
+                        </div>
+                        <div class="col-md-3">
+                                <center><h1 id="tituloDescription">{{ usuario.user.username|escape|capfirst }}</h1></center>
+                                <li>Nombre{{usuario.user.get_full_name}}</li>
+                                <li>E-mail{{usuario.user.email}}</li>
+                                <li>Fecha de NAcimiento: {{usuario.fechaNacimiento}}</li>  
+                                <li>Sexo: {{usuario.sexo}}</li>
+                                <li>Telefono: {{usuario.telefono}}</li>  
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
       		</div>
     	</ul>
-
     </form>
 	
 </div>
 {%endblock%}
-
-
