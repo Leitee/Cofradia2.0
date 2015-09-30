@@ -12,6 +12,9 @@ Author URL: http://shapebootstrap.net
 
 /*AGREGUE FUENTE - OSCAR*/
 
+th{
+  color: cadetblue;
+}
 
 @font-face{
   font-family: 'Coco';
@@ -68,7 +71,7 @@ hr {
   margin: 20px 0px 5px 0px;
 
 }.fuentes{
-  font-family: Coco;
+
 }
 
 

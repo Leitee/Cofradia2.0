@@ -92,8 +92,16 @@ def guardar_publi(request,user_id):
 		context_instance=RequestContext(request))
 
 @login_required
-def enviar_mail(request, unMail):
-	send_mail('Hola Mundo - Cofradia2.0', 'Este es un mensaje de cofradia', 'cofradiaChaco@gmail.com',[unMail], fail_silently=False)
+def enviar_mail_a(request, postu_id,unMail):
+	send_mail('Aprobacion', 'Usted a sido seleccionado para formar parte del grupo', 'cofradiaChaco@gmail.com',[unMail], fail_silently=False)
+	p = Postulante.objects.get(id = postu_id).delete()
+	return render_to_response('homepage.html',
+		context_instance=RequestContext(request))
+
+@login_required
+def enviar_mail_r(request, postu_id, unMail):
+	send_mail('Rechazado', 'Usted no ha sido aprobado para formar parte del grupo', 'cofradiaChaco@gmail.com',[unMail], fail_silently=False)
+	p = Postulante.objects.get(id = postu_id).delete()
 	return render_to_response('homepage.html',
 		context_instance=RequestContext(request))
 

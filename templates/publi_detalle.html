@@ -17,8 +17,8 @@
 <div style="margin-bottom:200px;">
 	<div id="tituloCategoria"><center><h1 style="font-family: sans-serif;">{{texto}}</h1></center></div>
 	<br>
- 	<form action="/search/" method="get">	
-        <ul>
+ 	<form action="/search/" method="get" >	
+        <ul >
         	<div id="two">
         		<center><h1 class="tituloDescription">{{ publi.nombre|escape|capfirst }}</h1></center>
 
@@ -47,8 +47,8 @@
                           <td>{{postu.usuario.user.first_name}}</td>
                           <td>{{postu.usuario.user.email}}</td>
                           <td>
-                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Aceptar</a> |
-                            <a href="{% url "enviar_mail" postu.usuario.user.email %}">Rechazar</a>
+                            <a href="{% url "enviar_mail_a" postu.id postu.usuario.user.email %}">Aceptar</a> |
+                            <a href="{% url "enviar_mail_r" postu.id postu.usuario.user.email %}">Rechazar</a>
                           </td>
                         </tr>
                       </tbody>
