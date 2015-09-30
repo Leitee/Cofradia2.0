@@ -39,7 +39,9 @@ urlpatterns = [
     url(r'^publi_postuladas/(?P<user_id>\d+)/$', 'aplicacion.views.publi_postuladas', name='publi_postuladas'),
     url(r'^guardar_publi/(?P<user_id>\d+)/$', 'aplicacion.views.guardar_publi', name='guardar_publi'),
     url(r'^buscar/$', 'aplicacion.views.buscar', name='buscar'),
-    url(r'^enviar_mail/(?P<unMail>[^/]+)/$', 'aplicacion.views.enviar_mail', name='enviar_mail'),
+    url(r'^enviar_mail_a/(?P<postu_id>\d+)/(?P<unMail>[^/]+)/$', 'aplicacion.views.enviar_mail_a', name='enviar_mail_a'),
+    url(r'^enviar_mail_r/(?P<postu_id>\d+)/(?P<unMail>[^/]+)/$', 'aplicacion.views.enviar_mail_r', name='enviar_mail_r'),
+    #url(r'^enviar_mail_r/(?P<unMail>[^/]+)/$', 'aplicacion.views.enviar_mail_r', name='enviar_mail_r'),
     #url(r'^enviar_mail/$', 'aplicacion.views.enviar_mail', name='enviar_mail')
 
 ]

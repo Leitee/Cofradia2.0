@@ -7,27 +7,19 @@
 <div style="
 margin-left: 135px;">
 	<br>
- 	<form action="/search/" method="get">	
+ 	<!--form action="/search/" method="get"-->	
         <ul >
         	<div id="two">
                 <div class="container-fluid">
                     <div class="row">
 
-
-
-
-                        <div class="col-md-2">
+                        <div class="col-md-3">
+                        <div class="btn-group btn-group-vertical">
+                            <li class="scroll" style="margin-bottom: 20px;margin-top: 20px;"><a href="{% url "crear_publi" %}"><button class="btn btn-primary" type="submit">Crear Publicacion</button></a> </li>
+                            <li class="scroll" style="margin-bottom: 20px;"><a href="{% url "publi_creada" usuario.id %}"><button class="btn btn-primary" type="submit">Ver Publicaciones Creadas</button></a> </li>
+                            <li class="scroll" style="margin-bottom: 20px;"><a href="{% url "publi_postuladas" usuario.id %}"><button class="btn btn-primary" type="submit">Ver Publicaciones Postuladas</button></a> </li>
                         </div>
-                                <div class="col-md-2">
-            <div class="btn-group btn-group-vertical">
-                 
-                <button class="btn btn-default" type="button">Crear Publicacion</button> 
-                <button class="btn btn-default" type="button">Publicaciones Creadas</button> 
-                <button class="btn btn-default" type="button">Publicaciones Postuladas</button> 
-
-            </div>
-        </div>
-
+</div>
                         <div class="col-md-2">
                             
                             {% if usuario.sexo == 'Hombre' %}
@@ -40,9 +32,9 @@ margin-left: 135px;">
                         </div>
                         <div class="col-md-3">
                                 <center><h1 id="tituloDescription">{{ usuario.user.username|escape|capfirst }}</h1></center>
-                                <li>Nombre{{usuario.user.get_full_name}}</li>
-                                <li>E-mail{{usuario.user.email}}</li>
-                                <li>Fecha de NAcimiento: {{usuario.fechaNacimiento}}</li>  
+                                <li>Nombre: {{usuario.user.get_full_name}}</li>
+                                <li>E-mail: {{usuario.user.email}}</li>
+                                <li>Fecha de Nacimiento: {{usuario.fechaNacimiento}}</li>  
                                 <li>Sexo: {{usuario.sexo}}</li>
                                 <li>Telefono: {{usuario.telefono}}</li>  
                         </div>
@@ -52,7 +44,7 @@ margin-left: 135px;">
                 </div>
       		</div>
     	</ul>
-    </form>
+    <!--/form-->
 	
 </div>
 {%endblock%}
